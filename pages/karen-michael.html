@@ -1,11 +1,1493 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Karen Michael | IT & Network Portfolio</title>
+
+    <meta name="description"
+        content="Karen Michael - Computer Science Student interested in IT, Networking and Cybersecurity.">
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #0b1120;
+            --bg-secondary: #111827;
+            --card: #151f32;
+            --primary: #38bdf8;
+            --primary-dark: #0284c7;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --border: rgba(148, 163, 184, 0.15);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(11, 17, 32, 0.88);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 25px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        #home {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 130px;
+        }
+
+        .hero {
+            max-width: 800px;
+        }
+
+        .hero-small {
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 75px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            color: var(--muted);
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 700px;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 8px;
+            border: 1px solid var(--primary);
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #06121d;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .btn-outline {
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(56, 189, 248, 0.1);
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .info-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .info-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.5);
+        }
+
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.15);
+
+            padding: 7px 12px;
+            border-radius: 20px;
+
+            color: #cbd5e1;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 27px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 248, 0.45);
+        }
+
+        .project-number {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            font-size: 21px;
+            margin-bottom: 5px;
+        }
+
+        .project-type {
+            color: var(--primary);
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .project-card ul {
+            padding-left: 18px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .project-card li {
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================
+           TIMELINE
+        ========================= */
+
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 35px 30px;
+            border-left: 2px solid var(--primary);
+        }
+
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+        }
+
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            width: 10px;
+            height: 10px;
+
+            background: var(--primary);
+            border-radius: 50%;
+
+            left: -6px;
+            top: 5px;
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================
+           CERTIFICATIONS
+        ========================= */
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .cert-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 22px;
+            border-radius: 12px;
+        }
+
+        .cert-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .cert-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-box {
+            text-align: center;
+
+            background: var(--card);
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+            padding: 50px 25px;
+        }
+
+        .contact-box h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+
+            margin-bottom: 30px;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+
+            color: var(--muted);
+
+            border-top: 1px solid var(--border);
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+
+            #home {
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .contact-box h2 {
+                font-size: 28px;
+            }
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-<h1>Hello world</h1>    
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                Karen<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#experience">Experience</a>
+                </li>
+
+                <li>
+                    <a href="#certifications">Certifications</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section id="home">
+
+        <div class="hero">
+
+            <div class="hero-small">
+                Hello, I'm
+            </div>
+
+            <h1>
+                Karen <span class="highlight">Michael</span>
+            </h1>
+
+            <h2>
+                Computer Science Student | IT & Network Enthusiast
+            </h2>
+
+            <p>
+                IT-oriented Computer Science student with hands-on
+                experience in networking, system configuration,
+                cybersecurity and academic software projects.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View My Projects
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about">
+
+        <div class="section-title">
+
+            <h2>
+                About <span class="highlight">Me</span>
+            </h2>
+
+            <p>
+                A little bit about my background
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-text">
+
+                <p>
+                    I am a Computer Science student at The Egyptian
+                    E-Learning University, interested in IT, networking
+                    and cybersecurity.
+                </p>
+
+                <p>
+                    I have hands-on experience with Cisco Packet Tracer,
+                    Kali Linux, Python and several academic projects
+                    covering machine learning, NLP, operating systems
+                    and desktop applications.
+                </p>
+
+                <p>
+                    I am currently looking to apply my technical skills
+                    in an IT internship environment.
+                </p>
+
+            </div>
+
+
+
+            <div class="info-card">
+
+
+                <div class="info-item">
+
+                    <strong>
+                        Education
+                    </strong>
+
+                    Bachelor of Computer Science
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <strong>
+                        University
+                    </strong>
+
+                    The Egyptian E-Learning University
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <strong>
+                        Expected Graduation
+                    </strong>
+
+                    2027
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <strong>
+                        GPA
+                    </strong>
+
+                    3.7 / 4.0
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills">
+
+        <div class="section-title">
+
+            <h2>
+                Technical <span class="highlight">Skills</span>
+            </h2>
+
+            <p>
+                Technologies and technical areas
+            </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Networking & IT
+                </h3>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        Cisco Packet Tracer
+                    </span>
+
+                    <span class="tag">
+                        Network Configuration
+                    </span>
+
+                    <span class="tag">
+                        Troubleshooting
+                    </span>
+
+                    <span class="tag">
+                        IT Support
+                    </span>
+
+                    <span class="tag">
+                        CCNA
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Cybersecurity
+                </h3>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        Kali Linux
+                    </span>
+
+                    <span class="tag">
+                        Metasploit Framework
+                    </span>
+
+                    <span class="tag">
+                        Fortinet
+                    </span>
+
+                    <span class="tag">
+                        Network Security
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Programming
+                </h3>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        Python
+                    </span>
+
+                    <span class="tag">
+                        Java
+                    </span>
+
+                    <span class="tag">
+                        C++
+                    </span>
+
+                    <span class="tag">
+                        JavaScript
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Web & Database
+                </h3>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        HTML
+                    </span>
+
+                    <span class="tag">
+                        CSS
+                    </span>
+
+                    <span class="tag">
+                        SQL
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <h3>
+                    Computer Science
+                </h3>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        Data Structures & Algorithms
+                    </span>
+
+                    <span class="tag">
+                        Operating Systems
+                    </span>
+
+                    <span class="tag">
+                        Software Engineering
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects">
+
+        <div class="section-title">
+
+            <h2>
+                Featured <span class="highlight">Projects</span>
+            </h2>
+
+            <p>
+                Academic projects across different areas of computer science
+            </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+            <!-- Project 1 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    01
+                </div>
+
+                <h3>
+                    Chat System
+                </h3>
+
+                <div class="project-type">
+                    Operating Systems · December 2025
+                </div>
+
+                <ul>
+
+                    <li>
+                        Developed version 1 using Shared Memory
+                        and Synchronization mechanisms.
+                    </li>
+
+                    <li>
+                        Built version 2 using Sockets
+                        and Multithreading.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Project 2 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    02
+                </div>
+
+                <h3>
+                    Restaurant Management System
+                </h3>
+
+                <div class="project-type">
+                    Advanced Software Engineering · May 2026
+                </div>
+
+                <ul>
+
+                    <li>
+                        Developed a desktop system using Java Swing and SQL.
+                    </li>
+
+                    <li>
+                        Included authentication, order management
+                        and reporting modules.
+                    </li>
+
+                    <li>
+                        Integrated database operations using JDBC.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Project 3 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    03
+                </div>
+
+                <h3>
+                    Credit Risk Prediction
+                </h3>
+
+                <div class="project-type">
+                    Machine Learning · May 2026
+                </div>
+
+                <ul>
+
+                    <li>
+                        Constructed 6 model pipelines using
+                        Logistic Regression, Decision Tree
+                        and Random Forest.
+                    </li>
+
+                    <li>
+                        Applied pipelines with and without
+                        feature selection.
+                    </li>
+
+                    <li>
+                        Evaluated models using accuracy,
+                        precision, recall and F1-score.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Project 4 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    04
+                </div>
+
+                <h3>
+                    Email Spam Detection
+                </h3>
+
+                <div class="project-type">
+                    NLP · May 2026
+                </div>
+
+                <ul>
+
+                    <li>
+                        Compared 5 machine learning models.
+                    </li>
+
+                    <li>
+                        Used Naive Bayes, SVM, Logistic Regression,
+                        Neural Networks and Random Forest.
+                    </li>
+
+                    <li>
+                        Applied TF-IDF feature extraction.
+                    </li>
+
+                    <li>
+                        Developed a Tkinter GUI for real-time predictions.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Project 5 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    05
+                </div>
+
+                <h3>
+                    Connect Four Game
+                </h3>
+
+                <div class="project-type">
+                    AI Algorithms · December 2025
+                </div>
+
+                <ul>
+
+                    <li>
+                        Implemented Minimax with Alpha-Beta Pruning.
+                    </li>
+
+                    <li>
+                        Used depth 4 on a 6×7 game board.
+                    </li>
+
+                    <li>
+                        Built the game interface using Pygame.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Project 6 -->
+
+            <div class="project-card">
+
+                <div class="project-number">
+                    06
+                </div>
+
+                <h3>
+                    Recipe Website
+                </h3>
+
+                <div class="project-type">
+                    Web Development · May 2025
+                </div>
+
+                <ul>
+
+                    <li>
+                        Created a responsive website using
+                        HTML, CSS and JavaScript.
+                    </li>
+
+                    <li>
+                        Added interactive features.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================= -->
+
+    <section id="experience">
+
+        <div class="section-title">
+
+            <h2>
+                Experience & <span class="highlight">Training</span>
+            </h2>
+
+            <p>
+                Volunteer experience and professional training
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <!-- Volunteer -->
+
+            <div class="timeline-item">
+
+                <h3>
+                    Network Team Member (Security)
+                </h3>
+
+                <div class="timeline-date">
+                    IEEE Fayoum University Student Branch · March 2025
+                </div>
+
+                <p>
+                    Secured and simulated network topologies
+                    using Cisco Packet Tracer.
+                </p>
+
+                <p>
+                    Supported basic network configuration
+                    and security testing.
+                </p>
+
+                <p>
+                    Received a Certificate of Appreciation
+                    for active participation.
+                </p>
+
+            </div>
+
+
+
+            <!-- CIB -->
+
+            <div class="timeline-item">
+
+                <h3>
+                    Online Internship Trainee
+                </h3>
+
+                <div class="timeline-date">
+                    Commercial International Bank (CIB Egypt)
+                </div>
+
+                <p>
+                    Online internship training experience.
+                </p>
+
+            </div>
+
+
+
+            <!-- DEPI -->
+
+            <div class="timeline-item">
+
+                <h3>
+                    Cybersecurity Track
+                </h3>
+
+                <div class="timeline-date">
+                    Digital Egypt Pioneers Program (DEPI) · MCIT Egypt
+                </div>
+
+                <p>
+                    Cybersecurity-focused training through the
+                    Digital Egypt Pioneers Program.
+                </p>
+
+            </div>
+
+
+
+            <!-- SQL -->
+
+            <div class="timeline-item">
+
+                <h3>
+                    SQL for Data Analysis
+                </h3>
+
+                <div class="timeline-date">
+                    365 Data Science
+                </div>
+
+                <p>
+                    Completed training in SQL for Data Analysis.
+                </p>
+
+            </div>
+
+
+
+            <!-- Data Analysis -->
+
+            <div class="timeline-item">
+
+                <h3>
+                    Data Literacy and Data Analysis
+                </h3>
+
+                <div class="timeline-date">
+                    Digital Badges
+                </div>
+
+                <p>
+                    Training in data literacy and data analysis.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CERTIFICATIONS
+    ========================= -->
+
+    <section id="certifications">
+
+        <div class="section-title">
+
+            <h2>
+                <span class="highlight">Certifications</span>
+            </h2>
+
+            <p>
+                Professional certifications and credentials
+            </p>
+
+        </div>
+
+
+        <div class="cert-grid">
+
+
+            <div class="cert-card">
+
+                <h3>
+                    Fortinet Cybersecurity Engineer Track
+                </h3>
+
+                <p>
+                    Digital Egypt Pioneers Program (DEPI), MCIT Egypt
+                </p>
+
+            </div>
+
+
+
+            <div class="cert-card">
+
+                <h3>
+                    CCNA: Introduction to Networks
+                </h3>
+
+                <p>
+                    Cisco Networking Academy
+                </p>
+
+            </div>
+
+
+
+            <div class="cert-card">
+
+                <h3>
+                    CCNA: Switching, Routing, and Wireless Essentials
+                </h3>
+
+                <p>
+                    Cisco Networking Academy
+                </p>
+
+            </div>
+
+
+
+            <div class="cert-card">
+
+                <h3>
+                    CCNA: Enterprise Networking, Security, and Automation
+                </h3>
+
+                <p>
+                    Cisco Networking Academy
+                </p>
+
+            </div>
+
+
+
+            <div class="cert-card">
+
+                <h3>
+                    Information Technology Specialist
+                </h3>
+
+                <p>
+                    Device Configuration & Management · Certiport
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact">
+
+        <div class="contact-box">
+
+            <h2>
+                Let's <span class="highlight">Connect</span>
+            </h2>
+
+            <p>
+                Interested in IT, networking, cybersecurity
+                and technology opportunities.
+            </p>
+
+
+            <div class="contact-info">
+
+                <a
+                    href="https://linkedin.com/in/karenmichael-eg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
+                </a>
+
+            </div>
+
+
+            <div class="buttons">
+
+                <a
+                    href="https://linkedin.com/in/karenmichael-eg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    Visit LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Karen Michael. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        window.addEventListener("scroll", () => {
+
+            let current = "";
+
+            sections.forEach(section => {
+
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+
+                if (
+                    window.scrollY >= sectionTop &&
+                    window.scrollY < sectionTop + sectionHeight
+                ) {
+                    current = section.getAttribute("id");
+                }
+
+            });
+
+            navLinks.forEach(link => {
+
+                link.style.color = "";
+
+                if (
+                    link.getAttribute("href") === "#" + current
+                ) {
+                    link.style.color = "#38bdf8";
+                }
+
+            });
+
+        });
+
+    </script>
+
+
 </body>
+
 </html>
