@@ -1,22 +1,29 @@
 import { useState } from "react";
 
 function ChatInput({ onSend }) {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] =
+    useState("");
 
   const handleSend = () => {
-    if (!message.trim()) return;
+    if (!message.trim()) {
+      return;
+    }
 
     onSend(message);
+
     setMessage("");
   };
 
   return (
     <div className="border-t p-4 flex gap-3">
+
       <input
         type="text"
         placeholder="Type your message..."
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={(e) =>
+          setMessage(e.target.value)
+        }
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             handleSend();
@@ -27,10 +34,11 @@ function ChatInput({ onSend }) {
 
       <button
         onClick={handleSend}
-        className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700"
+        className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
       >
         Send
       </button>
+
     </div>
   );
 }
